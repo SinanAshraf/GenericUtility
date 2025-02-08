@@ -1,0 +1,41 @@
+﻿@model GenericUtility.Models.Base64DecoderViewModel
+
+<div class="container">
+    <h2>Base64 Decoder</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputText">Enter Base64 String:</label>
+            <!-- Use the model's InputText property for the textarea -->
+            <textarea class="form-control" id="InputText" name="InputText" rows="5">@Model.InputText</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Decode</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.DecodedText))
+        {
+            <h4>Decoded Text:</h4>
+            <pre>@Model.DecodedText</pre>
+        }
+        else if (string.IsNullOrEmpty(Model.InputText) == false && string.IsNullOrEmpty(Model.DecodedText))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter a valid Base64 string to decode.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

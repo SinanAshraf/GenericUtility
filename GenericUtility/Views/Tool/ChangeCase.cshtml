@@ -1,0 +1,47 @@
+﻿@model GenericUtility.Models.ChangeCaseViewModel
+
+<div class="container">
+    <h2>Change Case</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputText">Enter Text:</label>
+            <textarea class="form-control" id="InputText" name="InputText" rows="5">@Model.InputText</textarea>
+        </div>
+        <div class="form-group">
+            <label for="CaseOption">Choose Case:</label>
+            <select class="form-control" id="CaseOption" name="CaseOption">
+                <option value="uppercase" selected>Uppercase</option>
+                <option value="lowercase">Lowercase</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Change Case</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.ProcessedText))
+        {
+            <h4>Processed Text:</h4>
+            <pre>@Model.ProcessedText</pre>
+        }
+        else if (!string.IsNullOrEmpty(Model.InputText) && string.IsNullOrEmpty(Model.ProcessedText))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter text to process.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

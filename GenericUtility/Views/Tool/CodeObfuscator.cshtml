@@ -1,0 +1,41 @@
+﻿@model GenericUtility.Models.CodeObfuscatorViewModel
+
+<div class="container">
+    <h2>Code Obfuscator</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputCode">Enter Code:</label>
+            <!-- Use the model's InputCode property for the textarea -->
+            <textarea class="form-control" id="InputCode" name="InputCode" rows="10">@Model.InputCode</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Obfuscate</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.ObfuscatedCode))
+        {
+            <h4>Obfuscated Code:</h4>
+            <pre>@Model.ObfuscatedCode</pre>
+        }
+        else if (string.IsNullOrEmpty(Model.InputCode) == false && string.IsNullOrEmpty(Model.ObfuscatedCode))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter valid code to obfuscate.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

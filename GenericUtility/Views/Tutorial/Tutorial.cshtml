@@ -1,0 +1,25 @@
+﻿@using GenericUtility.Models
+@using GenericUtility.Services
+
+@model PaginatedList<TutorialsVM>
+
+@{
+    ViewData["Title"] = "Tutorials Page";
+    string tutorialName = ViewData["TutorialName"] as string;
+}
+
+@foreach (var tutorial in Model.Items)
+{
+    @Html.Partial("_TutorialContent", tutorial)
+}
+
+<div class="pagination">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" asp-route-name="@tutorialName">Previous</a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" asp-route-name="@tutorialName">Next</a>
+    }
+</div>

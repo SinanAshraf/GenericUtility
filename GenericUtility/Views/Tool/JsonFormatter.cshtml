@@ -1,0 +1,29 @@
+﻿@model GenericUtility.Models.JsonFormatterViewModel
+
+<div class="container">
+    <h2>JSON Formatter</h2>
+
+    <!-- Form for inputting JSON -->
+    <form method="post">
+        <div class="form-group">
+            <label for="InputJson">Enter JSON:</label>
+            <textarea class="form-control" id="InputJson" name="InputJson" rows="8">@Model.InputJson</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Format</button>
+    </form>
+
+    <!-- Display formatted JSON if available -->
+    @if (!string.IsNullOrEmpty(Model.FormattedJson))
+    {
+        <h4>Formatted JSON:</h4>
+        <pre>@Model.FormattedJson</pre>
+    }
+
+    <!-- Display error if the JSON format is invalid -->
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewBag.Error</p>
+        </div>
+    }
+</div>

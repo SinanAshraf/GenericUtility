@@ -1,0 +1,31 @@
+﻿@model GenericUtility.Models.CssBeautifierViewModel
+
+<div class="container">
+    <h2>CSS Beautifier</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputCss">Enter CSS:</label>
+            <textarea class="form-control" id="InputCss" name="InputCss" rows="5">@Model.InputCss</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Beautify CSS</button>
+    </form>
+
+    @if (Model != null && Model.BeautifiedCss != null)
+    {
+        <h4>Beautified CSS:</h4>
+        <pre>@Model.BeautifiedCss</pre>
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

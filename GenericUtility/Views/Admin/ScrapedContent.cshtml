@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Scraped Content";
+    var htmlContents = ViewBag.HtmlContents as List<string>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Scraped Content</h1>
+    @if (htmlContents != null && htmlContents.Any())
+    {
+        <div>
+            @foreach (var content in htmlContents)
+            {
+                <div class="scraped-content">
+                    @Html.Raw(content)
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No content available.</p>
+    }
+</div>

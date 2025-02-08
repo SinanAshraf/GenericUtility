@@ -1,0 +1,41 @@
+﻿@model GenericUtility.Models.Base64EncoderViewModel
+
+<div class="container">
+    <h2>Base64 Encoder</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputText">Enter Text to Encode:</label>
+            <!-- Use the model's InputText property for the textarea -->
+            <textarea class="form-control" id="InputText" name="InputText" rows="5">@Model.InputText</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Encode</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.EncodedText))
+        {
+            <h4>Encoded Text:</h4>
+            <pre>@Model.EncodedText</pre>
+        }
+        else if (!string.IsNullOrEmpty(Model.InputText) && string.IsNullOrEmpty(Model.EncodedText))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter a valid string to encode.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

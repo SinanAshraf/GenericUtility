@@ -1,0 +1,39 @@
+﻿@model GenericUtility.Models.UnitConverterViewModel
+
+<div class="container">
+    <h2>Unit Converter</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputValue">Value:</label>
+            <input type="number" class="form-control" id="InputValue" name="InputValue" value="@Model.InputValue" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="FromUnit">From Unit:</label>
+            <input type="text" class="form-control" id="FromUnit" name="FromUnit" value="@Model.FromUnit" required>
+        </div>
+        <div class="form-group">
+            <label for="ToUnit">To Unit:</label>
+            <input type="text" class="form-control" id="ToUnit" name="ToUnit" value="@Model.ToUnit" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
+
+    @if (Model != null && Model.ConvertedValue.HasValue)
+    {
+        <h4>Converted Value:</h4>
+        <pre>@Model.ConvertedValue.Value</pre>
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

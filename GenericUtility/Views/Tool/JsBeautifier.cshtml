@@ -1,0 +1,31 @@
+﻿@model GenericUtility.Models.JsBeautifierViewModel
+
+<div class="container">
+    <h2>JS Beautifier</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputJs">Enter JS:</label>
+            <textarea class="form-control" id="InputJs" name="InputJs" rows="5">@Model.InputJs</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Beautify JS</button>
+    </form>
+
+    @if (Model != null && Model.BeautifiedJs != null)
+    {
+        <h4>Beautified JS:</h4>
+        <pre>@Model.BeautifiedJs</pre>
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

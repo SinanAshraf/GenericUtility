@@ -1,0 +1,31 @@
+﻿@model GenericUtility.Models.JsonBeautifierViewModel
+
+<div class="container">
+    <h2>JSON Beautifier</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputJson">Enter JSON:</label>
+            <textarea class="form-control" id="InputJson" name="InputJson" rows="5">@Model.InputJson</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Beautify JSON</button>
+    </form>
+
+    @if (Model != null && Model.BeautifiedJson != null)
+    {
+        <h4>Beautified JSON:</h4>
+        <pre>@Model.BeautifiedJson</pre>
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

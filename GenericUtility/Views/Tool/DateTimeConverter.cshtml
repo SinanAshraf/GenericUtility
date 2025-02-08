@@ -1,0 +1,39 @@
+﻿@model GenericUtility.Models.DateTimeConverterViewModel
+
+<div class="container">
+    <h2>DateTime Converter</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputDateTime">DateTime:</label>
+            <input type="datetime-local" class="form-control" id="InputDateTime" name="InputDateTime" value="@Model.InputDateTime.ToString("yyyy-MM-ddTHH:mm")" required>
+        </div>
+        <div class="form-group">
+            <label for="FromTimeZone">From TimeZone:</label>
+            <input type="text" class="form-control" id="FromTimeZone" name="FromTimeZone" value="@Model.FromTimeZone" required>
+        </div>
+        <div class="form-group">
+            <label for="ToTimeZone">To TimeZone:</label>
+            <input type="text" class="form-control" id="ToTimeZone" name="ToTimeZone" value="@Model.ToTimeZone" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
+
+    @if (Model != null && Model.ConvertedDateTime.HasValue)
+    {
+        <h4>Converted DateTime:</h4>
+        <pre>@Model.ConvertedDateTime.Value</pre>
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

@@ -1,0 +1,142 @@
+﻿<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+    </li>
+
+    <!-- Tutorials Dropdown Menu -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarTutorialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tutorials
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarTutorialsDropdown">
+            <!-- Programming Languages -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Programming Languages</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="Python">Python</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="CSharp">C#</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="Java">Java</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="JavaScript">JavaScript</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="HTML">HTML</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="SQL">SQL</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="PHP">PHP</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="CPlusPlus">C++</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="C">C</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="DataStructures">Data Structures</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="Aptitude">Aptitude</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="Reasoning">Reasoning</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="Selenium">Selenium</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Index" asp-route-name="DBMS">DBMS</a>
+                </div>
+            </div>
+
+            <!-- Data Structures and Algorithms -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Data Structures & Algorithms</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="DataStructures">Data Structures</a>
+                </div>
+            </div>
+
+            <!-- Aptitude and Reasoning -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Aptitude & Reasoning</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Aptitude">Aptitude</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Reasoning">Reasoning</a>
+                </div>
+            </div>
+
+            <!-- Automation Testing -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Automation Testing</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="Selenium">Selenium</a>
+                </div>
+            </div>
+
+            <!-- Database Management Systems -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">DBMS</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tutorial" asp-action="DBMS">DBMS</a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    <!-- Tools Dropdown Menu -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarToolsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tools
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarToolsDropdown">
+            <!-- Text Manipulation Tools -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Text Manipulation</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="RemoveSpaces">Remove Spaces</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="ChangeCase">Change Case</a>
+                </div>
+            </div>
+
+            <!-- Encoding / Decoding Tools -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Encoding / Decoding</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="Base64Decoder">Base64 Decoder</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="Base64Encoder">Base64 Encoder</a>
+                </div>
+            </div>
+
+            <!-- Formatting Tools -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Formatting Tools</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="JsonFormatter">JSON Formatter</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="SqlFormatter">SQL Formatter</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="HtmlFormatter">HTML Formatter</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="CssFormatter">CSS Formatter</a>
+                </div>
+            </div>
+
+            <!-- Data Conversion Tools -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Data Conversion</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="CurrencyConverter">Currency Converter</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="UnitConverter">Unit Converter</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="DateTimeConverter">Date/Time Converter</a>
+                </div>
+            </div>
+
+            <!-- Code Beautifiers / Obfuscators -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Code Beautifiers</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="JsonBeautifier">JSON Beautifier</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="JsBeautifier">JS Beautifier</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="CssBeautifier">CSS Beautifier</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="HtmlBeautifier">HTML Beautifier</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="Obfuscator">Code Obfuscator</a>
+                </div>
+            </div>
+
+            <!-- Regex Tools -->
+            <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Regex Tools</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="RegexTester">Regex Tester</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tool" asp-action="RegexReplace">Regex Replace</a>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+</ul>

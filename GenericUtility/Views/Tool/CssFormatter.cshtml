@@ -1,0 +1,40 @@
+﻿@model GenericUtility.Models.CssFormatterViewModel
+
+<div class="container">
+    <h2>CSS Formatter</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputCss">Enter CSS:</label>
+            <textarea class="form-control" id="InputCss" name="InputCss" rows="5">@Model.InputCss</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Format CSS</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.FormattedCss))
+        {
+            <h4>Formatted CSS:</h4>
+            <pre>@Model.FormattedCss</pre>
+        }
+        else if (!string.IsNullOrEmpty(Model.InputCss) && string.IsNullOrEmpty(Model.FormattedCss))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter CSS to format.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

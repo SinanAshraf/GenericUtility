@@ -1,0 +1,21 @@
+﻿@model GenericUtility.Models.HtmlBeautifierViewModel
+
+<div class="container">
+    <h2>HTML Beautifier</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputHtml">Enter HTML:</label>
+            <textarea class="form-control" id="InputHtml" name="InputHtml" rows="5">@Model.InputHtml</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Beautify HTML</button>
+    </form>
+
+    @if (Model != null && !string.IsNullOrEmpty(Model.BeautifiedHtml))
+    {
+        <div class="form-group">
+            <label for="BeautifiedHtml">Beautified HTML:</label>
+            <textarea class="form-control" id="BeautifiedHtml" name="BeautifiedHtml" rows="10" readonly>@Model.BeautifiedHtml</textarea>
+        </div>
+    }
+</div>

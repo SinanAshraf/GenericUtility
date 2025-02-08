@@ -1,0 +1,40 @@
+﻿@model GenericUtility.Models.HtmlFormatterViewModel
+
+<div class="container">
+    <h2>HTML Formatter</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputHtml">Enter HTML:</label>
+            <textarea class="form-control" id="InputHtml" name="InputHtml" rows="5">@Model.InputHtml</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Format HTML</button>
+    </form>
+
+    @if (Model != null)
+    {
+        @if (!string.IsNullOrEmpty(Model.FormattedHtml))
+        {
+            <h4>Formatted HTML:</h4>
+            <pre>@Model.FormattedHtml</pre>
+        }
+        else if (!string.IsNullOrEmpty(Model.InputHtml) && string.IsNullOrEmpty(Model.FormattedHtml))
+        {
+            <div class="alert alert-warning">
+                <p>Please enter HTML to format.</p>
+            </div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@model GenericUtility.Models.RegexTesterViewModel
+
+<div class="container">
+    <h2>Regex Tester</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputText">Enter Text:</label>
+            <textarea class="form-control" id="InputText" name="InputText" rows="5">@Model.InputText</textarea>
+        </div>
+        <div class="form-group">
+            <label for="Pattern">Enter Regex Pattern:</label>
+            <input type="text" class="form-control" id="Pattern" name="Pattern" value="@Model.Pattern" />
+        </div>
+        <button type="submit" class="btn btn-primary">Test</button>
+    </form>
+
+    @if (Model != null)
+    {
+        <h4>Result:</h4>
+        @if (Model.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">@Model.ErrorMessage</div>
+        }
+        else
+        {
+            <div class="alert alert-success">@Model.IsMatch ? "Match found!" : "No match found."</div>
+        }
+    }
+
+    @if (ViewData.ModelState?.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

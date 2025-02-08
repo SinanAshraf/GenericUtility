@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Admin Page</h1>
+    <form asp-action="GetJavapoint" method="post">
+        <div class="form-group">
+            <label for="source">Source:</label>
+            <input type="text" class="form-control" id="source" name="source" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Fetch Data</button>
+    </form>
+</div>

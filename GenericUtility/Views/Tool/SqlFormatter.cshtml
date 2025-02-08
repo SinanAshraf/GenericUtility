@@ -1,0 +1,27 @@
+﻿@model GenericUtility.Models.SqlFormatterViewModel
+
+<div class="container">
+    <h2>SQL Formatter</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputSql">Enter SQL Query:</label>
+            <textarea class="form-control" id="InputSql" name="InputSql" rows="8">@Model.InputSql</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Format SQL</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.FormattedSql))
+    {
+        <h4>Formatted SQL:</h4>
+        <pre>@Model.FormattedSql</pre>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewBag.Error</p>
+        </div>
+    }
+</div>

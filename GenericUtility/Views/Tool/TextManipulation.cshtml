@@ -1,0 +1,25 @@
+﻿@model GenericUtility.Models.TextManipulationViewModel
+
+<div class="container">
+    <h2>Text Manipulation</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="InputText">Enter Text:</label>
+            <textarea class="form-control" id="InputText" name="InputText" rows="8">@Model.InputText</textarea>
+        </div>
+
+        <div class="form-group mt-2">
+            <button type="submit" class="btn btn-primary" name="action" value="RemoveSpaces">Remove Spaces</button>
+            <button type="submit" class="btn btn-primary" name="action" value="ToUpperCase">To Upper Case</button>
+            <button type="submit" class="btn btn-primary" name="action" value="ToLowerCase">To Lower Case</button>
+            <button type="submit" class="btn btn-primary" name="action" value="TitleCase">To Title Case</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ManipulatedText))
+    {
+        <h4>Manipulated Text:</h4>
+        <pre>@Model.ManipulatedText</pre>
+    }
+</div>
