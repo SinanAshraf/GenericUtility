@@ -25,6 +25,31 @@ namespace GenericUtility.Controllers
             return View();
         }
 
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+        public IActionResult Team()
+        {
+            return View();
+        }
+
+        public IActionResult Testimonial()
+        {
+            return View();
+        }
+        public IActionResult Courses()
+        {
+            return View();
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -4,12 +4,26 @@
 
 <div class="text-center">
     <h1 class="display-4">Admin Page</h1>
-    <form asp-action="GetJavapoint" method="post">
-        <div class="form-group">
-            <label for="source">Source:</label>
-            <input type="text" class="form-control" id="source" name="source" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Fetch Data</button>
+    <br />
+    <form asp-action="GetJavaPointContentLinks" method="post">
+        <button type="submit" class="btn btn-primary">Get All Courses Links</button>
     </form>
+    <br />
+    <form asp-action="GetSidebarLinksFromTopics" method="post">
+        <button type="submit" class="btn btn-primary">Get All Links for each Courses</button>
+    </form>
+    <br />
+    <form asp-action="GetTutorialsContent" method="post">
+        <button type="submit" class="btn btn-primary">Get  Course Content for Each couse link</button>
+    </form>
+    <br />
+    <form asp-action="RemoveSpecificDivs" method="post">
+        <button type="submit" class="btn btn-primary">Remove Div for Pagination from Content</button>
+    </form>
+    <br/>
+    <form asp-action="FormatAndSaveHtmlFiles" method="post">
+        <button type="submit" class="btn btn-primary">FormatAndSaveHtmlFiles</button>
+    </form>
+    <br />
 
 </div>
